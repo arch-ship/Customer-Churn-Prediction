@@ -13,8 +13,8 @@
 
 | Notebook | Open in Colab |
 |---|---|
-| 📓 01 — EDA & Preprocessing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR-USERNAME/customer-churn-prediction/blob/main/notebook/01_EDA_and_Preprocessing.ipynb) |
-| 📓 02 — Modeling, SHAP & Segmentation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR-USERNAME/customer-churn-prediction/blob/main/notebook/02_Modeling_SHAP_Segmentation.ipynb) |
+| 📓 01 — EDA & Preprocessing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]([https://colab.research.google.com/github/YOUR-USERNAME/customer-churn-prediction/blob/main/notebook/01_EDA_and_Preprocessing.ipynb](https://colab.research.google.com/drive/10oE40Ek0veA_lfVzTDDCNCReUbPP5fR_?usp=sharing)) |
+| 📓 02 — Modeling, SHAP & Segmentation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]([https://colab.research.google.com/github/YOUR-USERNAME/customer-churn-prediction/blob/main/notebook/02_Modeling_SHAP_Segmentation.ipynb](https://colab.research.google.com/drive/1tkJX3--U0sSulhdFJ_qnv0P1yU9FiLn9?usp=sharing)) |
 
 ---
 
