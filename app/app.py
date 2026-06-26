@@ -25,28 +25,41 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ─── Custom CSS ────────────────────────────────────────────────
-st.markdown("""
+# ─── Theme Toggle ──────────────────────────────────────────────
+if 'dark_mode' not in st.session_state:
+    st.session_state.dark_mode = False
+
+# ─── Custom CSS (theme-aware) ───────────────────────────────────
+def get_css(dark):
+    bg       = "#0e1117" if dark else "#ffffff"
+    card_bg  = "#1e2130" if dark else "#f8f9fa"
+    text     = "#fafafa" if dark else "#111111"
+    border   = "#444" if dark else "#dee2e6"
+    hr_bg    = "#ffe0e0" if not dark else "#3d1a1a"
+    bud_bg   = "#e0ffe0" if not dark else "#1a3d1a"
+    pre_bg   = "#e0eaff" if not dark else "#1a2a3d"
+    return f"""
 <style>
-    .main-header {
+    .stApp {{ background-color: {bg}; color: {text}; }}
+    .main-header {{
         font-size: 2.2rem; font-weight: 800;
         background: linear-gradient(90deg, #667eea, #764ba2);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .metric-card {
-        background: linear-gradient(135deg, #667eea22, #764ba222);
-        border: 1px solid #667eea55; border-radius: 12px;
+    }}
+    .metric-card {{
+        background: {card_bg};
+        border: 1px solid {border}; border-radius: 12px;
         padding: 1rem; text-align: center;
-    }
-    .segment-card {
-        border-radius: 10px; padding: 1rem; margin: 0.5rem 0;
-    }
-    .high-risk   { background: #ffe0e0; border-left: 4px solid #e74c3c; }
-    .budget      { background: #e0ffe0; border-left: 4px solid #2ecc71; }
-    .premium     { background: #e0eaff; border-left: 4px solid #3498db; }
-    .stTabs [data-baseweb="tab"] { font-size: 1rem; font-weight: 600; }
+    }}
+    .segment-card {{ border-radius: 10px; padding: 1rem; margin: 0.5rem 0; color: #111; }}
+    .high-risk   {{ background: {hr_bg};  border-left: 4px solid #e74c3c; }}
+    .budget      {{ background: {bud_bg}; border-left: 4px solid #2ecc71; }}
+    .premium     {{ background: {pre_bg}; border-left: 4px solid #3498db; }}
+    .stTabs [data-baseweb="tab"] {{ font-size: 1rem; font-weight: 600; }}
 </style>
-""", unsafe_allow_html=True)
+"""
+
+st.markdown(get_css(st.session_state.dark_mode), unsafe_allow_html=True)
 
 # ─── Load & Preprocess Data ────────────────────────────────────
 @st.cache_data
@@ -160,6 +173,12 @@ with st.sidebar:
         "🗂️ Customer Segments",
         "🎯 Predict Single Customer"
     ])
+    st.divider()
+    # Theme toggle
+    theme_label = "☀️ Light Mode" if st.session_state.dark_mode else "🌙 Dark Mode"
+    if st.button(theme_label, use_container_width=True):
+        st.session_state.dark_mode = not st.session_state.dark_mode
+        st.rerun()
     st.divider()
     st.caption("Dataset: IBM Telco Churn | 7,043 customers")
     st.caption("Models: RF (3 variants) + XGBoost")
@@ -314,7 +333,11 @@ elif page == "🔍 SHAP Explainability":
         X_sample = X_test.sample(min(200, len(X_test)), random_state=42)
         explainer = shap.TreeExplainer(rf_tuned)
         shap_vals = explainer.shap_values(X_sample)
-        shap_churn = shap_vals[1]
+        # Handle both old SHAP (returns list) and new SHAP (returns array)
+        if isinstance(shap_vals, list):
+            shap_churn = shap_vals[1]
+        else:
+            shap_churn = shap_vals if shap_vals.ndim == 2 else shap_vals[:, :, 1]
 
     tab1, tab2 = st.tabs(["Summary Plot (Beeswarm)", "Feature Importance (Bar)"])
 
