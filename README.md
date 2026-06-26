@@ -8,7 +8,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-Live%20App-ff4b4b?logo=streamlit)](https://YOUR-APP-URL.streamlit.app)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-> **Live Demo →** [YOUR-APP-URL.streamlit.app](https://YOUR-APP-URL.streamlit.app)  
+> **Live Demo →** [customer-churn-prediction-arch-ship.streamlit.app](https://customer-churn-prediction-arch-ship.streamlit.app/)  
 > *(Replace with your Streamlit Community Cloud URL after deployment)*
 
 | Notebook | Open in Colab |
