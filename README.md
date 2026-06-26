@@ -11,6 +11,11 @@
 > **Live Demo →** [YOUR-APP-URL.streamlit.app](https://YOUR-APP-URL.streamlit.app)  
 > *(Replace with your Streamlit Community Cloud URL after deployment)*
 
+| Notebook | Open in Colab |
+|---|---|
+| 📓 01 — EDA & Preprocessing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR-USERNAME/customer-churn-prediction/blob/main/notebook/01_EDA_and_Preprocessing.ipynb) |
+| 📓 02 — Modeling, SHAP & Segmentation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR-USERNAME/customer-churn-prediction/blob/main/notebook/02_Modeling_SHAP_Segmentation.ipynb) |
+
 ---
 
 ## 📌 Project Overview
