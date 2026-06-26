@@ -26,9 +26,9 @@ ENV/
 !outputs/cluster_statistics.csv
 
 # Outputs (generated at runtime)
-outputs/*.png
-outputs/*.html
-outputs/df_preprocessed.csv
+# outputs/*.png
+# outputs/*.html
+# outputs/df_preprocessed.csv
 
 # OS
 .DS_Store
