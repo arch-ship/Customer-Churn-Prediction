@@ -1,0 +1,4 @@
+Cluster,Count,Avg_Tenure,Avg_Monthly_Charges,Avg_Total_Charges,Avg_Churn_Probability,Min_Churn_Prob,Max_Churn_Prob
+0,2012,34.19,29.6,1045.53,0.18,0.02,0.55
+1,2847,11.35,69.99,874.58,0.67,0.2,0.85
+2,2184,58.1,90.34,5248.46,0.32,0.05,0.69
